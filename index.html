@@ -14,33 +14,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* Custom styles for the page */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        #starfield, #river-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transition: opacity 1.5s ease-in-out;
-        }
-        #starfield {
-            opacity: 1;
-        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        .background-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        #starfield, #river-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; transition: opacity 1.5s ease-in-out; }
+        #starfield { opacity: 1; }
         #river-bg {
             background-image: url('https://images.unsplash.com/photo-1536257104079-aa99c6460a5a?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
@@ -48,11 +26,7 @@
             opacity: 0;
             animation: pan-river 90s linear infinite alternate;
         }
-
-        @keyframes pan-river {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
+        @keyframes pan-river { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
 
         .glass-card {
             background: rgba(17, 24, 39, 0.7);
@@ -60,7 +34,6 @@
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
         .liquid-text {
             background: linear-gradient(135deg, #ec4899, #8b5cf6, #06b6d4, #ec4899);
             background-size: 400% 400%;
@@ -69,7 +42,6 @@
             -webkit-text-fill-color: transparent;
             animation: liquid-flow 10s ease infinite;
         }
-
         @keyframes liquid-flow {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -96,7 +68,6 @@
                 </div>
             </a>
             
-            <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-8">
                 <a href="index.html" class="text-slate-200 hover:text-cyan-300 transition-colors">Home</a>
                 <a href="about.html" class="text-slate-200 hover:text-cyan-300 transition-colors">About</a>
@@ -104,15 +75,13 @@
                 <a href="projects.html" class="text-slate-200 hover:text-cyan-300 transition-colors">Projects</a>
             </nav>
 
-            <!-- Mobile Menu Button -->
             <div class="md:hidden">
                 <button id="menu-btn" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden">
             <a href="index.html" class="block py-2 px-4 text-sm text-slate-200 hover:bg-gray-700">Home</a>
             <a href="about.html" class="block py-2 px-4 text-sm text-slate-200 hover:bg-gray-700">About</a>
@@ -121,9 +90,9 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
+    <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
+        <!-- Hero -->
         <section id="home" class="h-screen flex items-center justify-center text-center p-4">
             <div>
                 <h1 class="liquid-text text-5xl md:text-7xl font-black uppercase tracking-wider">
@@ -135,29 +104,25 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Projects -->
         <section id="projects" class="py-20 px-4">
             <div class="container mx-auto text-center">
-                <!-- UPDATED: Text changed -->
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-12">Recent Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                    <!-- Project Card -->
-                    <div class="glass-card rounded-xl p-6 text-left transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
-                         <h3 class="text-xl font-bold text-white mb-3">Newsletter Management App</h3>
-                         <p class="text-slate-300 text-sm mb-4 flex-grow">A private, secure web application built with Firebase to view and manage the list of subscribers collected from this website's blog.</p>
-                         <a href="projects.html" class="font-semibold text-cyan-400 hover:text-cyan-200 transition-colors">View Details &rarr;</a>
+                    <!-- Coming Soon Placeholder -->
+                    <div class="glass-card rounded-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-3">Coming Soon...</h3>
+                        <p class="text-slate-300 text-sm">New projects are currently under development. Stay tuned!</p>
                     </div>
-                    <!-- Add more project cards here -->
                 </div>
             </div>
         </section>
-        
-        <!-- Recent Blogs Section -->
+
+        <!-- Blogs -->
         <section id="blogs" class="py-20 px-4">
             <div class="container mx-auto text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-12">Recent Blogs</h2>
                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                    <!-- Blog Post Card -->
                     <div class="glass-card rounded-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
                         <div class="p-6 flex-grow">
                             <p class="text-sm text-cyan-400 mb-2">Philosophy • May 20, 2025</p>
@@ -168,21 +133,16 @@
                             <a href="why-do-we-think.html" class="font-semibold text-cyan-400 hover:text-cyan-200 transition-colors">Read More &rarr;</a>
                         </div>
                     </div>
-                    <!-- Add more blog cards here -->
                 </div>
             </div>
         </section>
     </main>
 
     <script>
-        // --- Mobile Menu Toggle Script ---
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
 
-        // --- Background Transition on Scroll ---
         const starfield = document.getElementById('starfield');
         const riverBg = document.getElementById('river-bg');
         window.addEventListener('scroll', () => {
@@ -197,7 +157,6 @@
             }
         });
 
-        // --- Animated Starfield Background Script ---
         const canvas = starfield;
         const ctx = canvas.getContext('2d');
         const numStars = 500;
