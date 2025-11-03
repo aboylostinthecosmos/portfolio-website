@@ -14,14 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Custom styles for the page */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
         .background-container {
             position: fixed;
             top: 0;
@@ -34,12 +28,10 @@
             background-position: center;
             animation: pan-nebula 120s linear infinite alternate;
         }
-
         @keyframes pan-nebula {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
         }
-
         .glass-card {
             background: rgba(17, 24, 39, 0.8);
             backdrop-filter: blur(12px);
@@ -63,24 +55,18 @@
                     <span class="block text-xs text-slate-300 leading-tight">a boy lost in the cosmos</span>
                 </div>
             </a>
-            
-            <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-8">
                 <a href="index.html" class="text-slate-200 hover:text-cyan-300 transition-colors">Home</a>
                 <a href="about.html" class="text-slate-200 hover:text-cyan-300 transition-colors">About</a>
                 <a href="blog.html" class="text-slate-200 hover:text-cyan-300 transition-colors">Blog</a>
                 <a href="projects.html" class="text-slate-200 hover:text-cyan-300 transition-colors">Projects</a>
             </nav>
-
-            <!-- Mobile Menu Button -->
             <div class="md:hidden">
                 <button id="menu-btn" class="text-white focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </div>
-
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden">
             <a href="index.html" class="block py-2 px-4 text-sm text-slate-200 hover:bg-gray-700">Home</a>
             <a href="about.html" class="block py-2 px-4 text-sm text-slate-200 hover:bg-gray-700">About</a>
@@ -88,49 +74,6 @@
             <a href="projects.html" class="block py-2 px-4 text-sm text-slate-200 hover:bg-gray-700">Projects</a>
         </div>
     </header>
-
-    <!-- Subscribe Button -->
-    <div class="fixed top-24 right-6 z-20">
-        <button id="subscribe-btn-trigger" class="glass-card text-white font-bold py-2 px-4 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50 hover:text-cyan-300 transform hover:scale-105">
-            Subscribe
-        </button>
-    </div>
-
-    <!-- Subscription Modal -->
-    <div id="subscribe-modal" class="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
-        <div id="modal-content" class="glass-card rounded-2xl shadow-2xl p-8 w-full max-w-md text-center relative">
-            <!-- Close Button -->
-            <button id="close-modal-btn" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            
-            <!-- Form Content -->
-            <div id="form-view">
-                <img src="logo.png" alt="logo" class="h-16 w-16 rounded-full mx-auto mb-4" onerror="this.onerror=null;this.src='https://placehold.co/64x64/111827/FFFFFF?text=F';">
-                <p class="text-slate-300 mb-6">Get the latest posts and thoughts delivered to your inbox.</p>
-                <form id="subscribe-form">
-                    <input type="email" id="email-input" placeholder="Enter your email" class="w-full bg-gray-900/50 border border-slate-700 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 mb-4" required>
-                    <button id="submit-btn" type="submit" class="w-full bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-500 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
-                        <span id="submit-btn-text">Subscribe !!</span>
-                        <span id="submit-btn-loader" class="hidden">Subscribing...</span>
-                    </button>
-                </form>
-            </div>
-
-            <!-- Success Message -->
-            <div id="success-view" class="hidden">
-                 <h2 class="text-2xl font-bold text-white mb-2">Thank You!</h2>
-                 <p class="text-slate-300">You've successfully subscribed. Welcome to the journey!</p>
-            </div>
-            
-            <!-- Error Message -->
-            <div id="error-view" class="hidden">
-                 <h2 class="text-2xl font-bold text-red-500 mb-2">Something Went Wrong</h2>
-                 <p class="text-slate-300">Could not subscribe at this time. Please try again later.</p>
-            </div>
-        </div>
-    </div>
-
 
     <!-- Main Content Area -->
     <main class="pt-32 pb-16">
@@ -140,10 +83,7 @@
                 <p class="text-slate-300 mt-2">A collection of thoughts on science, philosophy, and everything in between.</p>
             </div>
 
-            <!-- Blog Post Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Your First Blog Post -->
                 <div class="glass-card rounded-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
                     <div class="p-6 flex-grow">
                         <p class="text-sm text-cyan-400 mb-2">Philosophy • May 20, 2025</p>
@@ -154,109 +94,12 @@
                         <a href="why-do-we-think.html" class="font-semibold text-cyan-400 hover:text-cyan-200 transition-colors">Read More &rarr;</a>
                     </div>
                 </div>
-
-                <!-- Add more blog post cards here when you write new posts -->
-
             </div>
         </div>
     </main>
 
-    <script type="module">
-        // --- Firebase SDK Imports ---
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getFirestore, collection, addDoc, Timestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // --- Firebase Configuration (Your specific project) ---
-        const firebaseConfig = {
-            apiKey: "AIzaSyDvwNsKNsVCHDgTStEvzrkTE8QWP831rPU",
-            authDomain: "webapp-6ac16.firebaseapp.com",
-            projectId: "webapp-6ac16",
-            storageBucket: "webapp-6ac16.appspot.com",
-            messagingSenderId: "357496327597",
-            appId: "1:357496327597:web:e95110ee68f4f9b1a7a524",
-            measurementId: "G-J691GR2M4G"
-        };
-
-        // --- Your specific User ID to link the form to your account ---
-        const ownerUserId = "iX85CVHoS2Nf55fO8GtxaQGJuuE2";
-        const appId = 'webapp-6ac16';
-
-        // --- Initialize Firebase ---
-        let db;
-        try {
-            // Use a unique name for this app instance to avoid conflicts
-            const app = initializeApp(firebaseConfig, "blogPageSubscribeApp");
-            db = getFirestore(app);
-        } catch (error) {
-            console.error("Error initializing Firebase on blog page:", error);
-        }
-
-        // --- Modal Control ---
-        const subscribeBtnTrigger = document.getElementById('subscribe-btn-trigger');
-        const closeModalBtn = document.getElementById('close-modal-btn');
-        const subscribeModal = document.getElementById('subscribe-modal');
-        const subscribeForm = document.getElementById('subscribe-form');
-        const emailInput = document.getElementById('email-input');
-        const formView = document.getElementById('form-view');
-        const successView = document.getElementById('success-view');
-        const errorView = document.getElementById('error-view');
-        const submitBtn = document.getElementById('submit-btn');
-        const submitBtnText = document.getElementById('submit-btn-text');
-        const submitBtnLoader = document.getElementById('submit-btn-loader');
-
-        subscribeBtnTrigger.addEventListener('click', () => {
-            subscribeModal.classList.remove('hidden');
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            subscribeModal.classList.add('hidden');
-            // Reset the modal state after closing
-            setTimeout(() => {
-                formView.classList.remove('hidden');
-                successView.classList.add('hidden');
-                errorView.classList.add('hidden');
-            }, 300);
-        });
-
-        // --- Form Submission Logic ---
-        subscribeForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            submitBtn.disabled = true;
-            submitBtnText.classList.add('hidden');
-            submitBtnLoader.classList.remove('hidden');
-
-            if (!db) {
-                console.error("Firestore is not initialized.");
-                formView.classList.add('hidden');
-                errorView.classList.remove('hidden');
-                return;
-            }
-            
-            const email = emailInput.value.trim();
-            const subscribersPath = `/artifacts/${appId}/users/${ownerUserId}/subscribers`;
-            
-            try {
-                await addDoc(collection(db, subscribersPath), {
-                    email: email,
-                    subscribedAt: Timestamp.now()
-                });
-                formView.classList.add('hidden');
-                successView.classList.remove('hidden');
-            } catch (error) {
-                console.error("Error adding subscriber: ", error);
-                formView.classList.add('hidden');
-                errorView.classList.remove('hidden');
-            } finally {
-                if (errorView.classList.contains('hidden')) { // only reset if error occurred
-                    submitBtn.disabled = false;
-                    submitBtnText.classList.remove('hidden');
-                    submitBtnLoader.classList.add('hidden');
-                }
-            }
-        });
-
-        // --- Mobile Menu Toggle Script ---
+    <script>
+        // Mobile Menu Toggle Script
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', () => {
