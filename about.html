@@ -129,40 +129,27 @@
         <div class="bg-gray-800 rounded-xl p-4 w-64">
           <i data-lucide="planet" class="w-8 h-8 text-indigo-400 mb-2 mx-auto"></i>
           <h3 class="font-semibold">Astrophysics</h3>
-          <p class="text-sm mt-1">Exploring celestial mechanics, stellar evolution, and cosmic phenomena.</p>
+          <p class="text-sm mt-1">Exploring celestial mechanics and the life of stars.</p>
         </div>
         <div class="bg-gray-800 rounded-xl p-4 w-64">
           <i data-lucide="galaxy" class="w-8 h-8 text-indigo-400 mb-2 mx-auto"></i>
           <h3 class="font-semibold">Cosmology</h3>
-          <p class="text-sm mt-1">Understanding the large-scale structure and origin of the universe.</p>
+          <p class="text-sm mt-1">Understanding the structure, evolution, and fate of the universe.</p>
         </div>
         <div class="bg-gray-800 rounded-xl p-4 w-64">
           <i data-lucide="cpu" class="w-8 h-8 text-indigo-400 mb-2 mx-auto"></i>
           <h3 class="font-semibold">Computational Physics</h3>
-          <p class="text-sm mt-1">Simulating and visualizing physical systems through code and data.</p>
+          <p class="text-sm mt-1">Simulating physical systems through mathematics and code.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section class="section fade-in text-center px-6">
-      <h2 class="text-3xl font-semibold text-indigo-400 mb-6">Skills & Tools</h2>
-      <div class="flex justify-center gap-12 flex-wrap text-gray-300">
-        <div class="flex flex-col items-center">
-          <i data-lucide="code-2" class="w-8 h-8 text-indigo-400 mb-2"></i>
-          <p>Python</p>
+        <div class="bg-gray-800 rounded-xl p-4 w-64">
+          <i data-lucide="camera" class="w-8 h-8 text-indigo-400 mb-2 mx-auto"></i>
+          <h3 class="font-semibold">Photography</h3>
+          <p class="text-sm mt-1">Capturing the aesthetic patterns of nature and light.</p>
         </div>
-        <div class="flex flex-col items-center">
-          <i data-lucide="file-text" class="w-8 h-8 text-indigo-400 mb-2"></i>
-          <p>LaTeX</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <i data-lucide="git-branch" class="w-8 h-8 text-indigo-400 mb-2"></i>
-          <p>Git</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <i data-lucide="book-open" class="w-8 h-8 text-indigo-400 mb-2"></i>
-          <p>Research Writing</p>
+        <div class="bg-gray-800 rounded-xl p-4 w-64">
+          <i data-lucide="brain" class="w-8 h-8 text-indigo-400 mb-2 mx-auto"></i>
+          <h3 class="font-semibold">Philosophy</h3>
+          <p class="text-sm mt-1">Reflecting on existence, consciousness, and meaning.</p>
         </div>
       </div>
     </section>
@@ -180,14 +167,14 @@
 
   </main>
 
-  <!-- JS: Menu, Scroll Animations, Lucide, Canvas -->
+  <!-- JS -->
   <script>
     // Mobile Menu
     const menuBtn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
     menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
 
-    // Fade-in on scroll
+    // Fade-in Animations
     const faders = document.querySelectorAll(".fade-in");
     const appearOptions = { threshold: 0.1 };
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
@@ -202,7 +189,7 @@
     // Lucide Icons
     lucide.createIcons();
 
-    // Cosmic Background Animation
+    // Cosmic Animation
     const canvas = document.getElementById('cosmicCanvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
