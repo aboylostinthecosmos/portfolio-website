@@ -25,8 +25,7 @@
     }
 
     .gradient-background {
-      position: fixed;
-      top: 0; left: 0;
+      position: fixed; top: 0; left: 0;
       width: 100%; height: 100%;
       background: radial-gradient(circle at 20% 30%, #1a1a2e, #16213e, #0f3460, #000000);
       background-size: 300% 300%;
@@ -34,48 +33,22 @@
       z-index: -2;
     }
 
-    @keyframes cosmicFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+    @keyframes cosmicFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-    .glass-card {
-      background: rgba(25, 35, 50, 0.75);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(100, 180, 255, 0.2);
-      box-shadow: 0 0 20px rgba(120, 200, 255, 0.15);
-      transition: box-shadow 0.4s ease, transform 0.4s ease;
-    }
-
-    .glass-card:hover {
-      box-shadow: 0 0 35px rgba(120, 200, 255, 0.3);
-    }
+    .glass-card { background: rgba(25, 35, 50, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(100, 180, 255, 0.2); box-shadow: 0 0 20px rgba(120, 200, 255, 0.15); transition: box-shadow 0.4s ease, transform 0.4s ease; }
+    .glass-card:hover { box-shadow: 0 0 35px rgba(120, 200, 255, 0.3); }
 
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    .cosmic-separator {
-      display: flex; align-items: center; justify-content: center;
-      margin: 60px 0 40px 0; position: relative;
-    }
-
-    .cosmic-separator::before, .cosmic-separator::after {
-      content: ''; flex: 1; height: 2px;
-      background: linear-gradient(to right, transparent, #6ab0ff, transparent);
-      animation: shimmer 3s infinite ease-in-out;
-    }
-
-    .cosmic-separator span {
-      font-size: 1.4em; color: #a4d8ff; padding: 0 15px; letter-spacing: 1px; text-transform: uppercase;
-    }
-
+    .cosmic-separator { display: flex; align-items: center; justify-content: center; margin: 60px 0 40px 0; position: relative; }
+    .cosmic-separator::before, .cosmic-separator::after { content: ''; flex: 1; height: 2px; background: linear-gradient(to right, transparent, #6ab0ff, transparent); animation: shimmer 3s infinite ease-in-out; }
+    .cosmic-separator span { font-size: 1.4em; color: #a4d8ff; padding: 0 15px; letter-spacing: 1px; text-transform: uppercase; }
     @keyframes shimmer { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
   </style>
 </head>
 <body class="text-white" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
   <div class="gradient-background"></div>
-
   <header class="bg-gray-900 bg-opacity-80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-md">
     <div class="container mx-auto px-6 py-3 flex justify-between items-center">
       <a href="index.html" class="flex flex-col text-white hover:text-blue-300 transition duration-200">
@@ -89,11 +62,6 @@
         <a href="papers.html" class="hover:text-blue-300 transition">Papers</a>
         <a href="projects.html" class="hover:text-blue-300 transition">Projects</a>
       </nav>
-      <button id="menu-btn" class="md:hidden text-gray-300 focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
     </div>
   </header>
 
@@ -105,43 +73,10 @@
       </div>
 
       <h2 class="text-3xl text-center font-semibold text-blue-300 mb-10 fade-in">Articles</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
-        <div class="glass-card rounded-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
-          <div class="p-6 flex-grow">
-            <p class="text-sm text-blue-300 mb-2">Philosophy of Physics • November 2025</p>
-            <h3 class="text-xl font-bold text-white mb-3">TIME — A Stubborn Illusion?</h3>
-            <p class="text-slate-300 text-sm">A conceptual and scientific exploration into the nature of time — from Aristotle’s paradoxes to modern relativity and quantum theory.</p>
-          </div>
-          <div class="p-6 pt-0">
-            <a href="TIME.pdf" target="_blank" class="font-semibold text-blue-300 hover:text-blue-200 transition-colors">View Paper →</a>
-          </div>
-        </div>
-
-        <div class="glass-card rounded-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
-          <div class="p-6 flex-grow">
-            <p class="text-sm text-blue-300 mb-2">Astrophysics • October 2025</p>
-            <h3 class="text-xl font-bold text-white mb-3">Dark Energy – The Unknown Driving Force of the Universe</h3>
-            <p class="text-slate-300 text-sm">A detailed exploration of dark energy, its discovery, theoretical models, and the missions uncovering its mysteries.</p>
-          </div>
-          <div class="p-6 pt-0">
-            <a href="dark-energy.pdf" target="_blank" class="font-semibold text-blue-300 hover:text-blue-200 transition-colors">View Paper →</a>
-          </div>
-        </div>
-      </div>
+      <div id="articles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in"></div>
 
       <div class="cosmic-separator"><span>Research & Review Papers</span></div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
-        <div class="glass-card rounded-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
-          <div class="p-6 flex-grow">
-            <p class="text-sm text-blue-300 mb-2">Extragalactic Astronomy • January 2024 • <span class='italic text-blue-200'>Review Paper</span></p>
-            <h3 class="text-xl font-bold text-white mb-3">Quasars – The Brightest Mystery of Our Universe</h3>
-            <p class="text-slate-300 text-sm">A comprehensive review exploring the enigma of quasars — their structure, jet mechanisms, and cosmic role.</p>
-          </div>
-          <div class="p-6 pt-0">
-            <a href="quasar-final.pdf" target="_blank" class="font-semibold text-blue-300 hover:text-blue-200 transition-colors">View Paper →</a>
-          </div>
-        </div>
-      </div>
+      <div id="research-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in"></div>
     </div>
   </main>
 
@@ -150,13 +85,52 @@
   </footer>
 
   <script>
+    async function loadPapers() {
+      const res = await fetch('papers.json');
+      const data = await res.json();
+
+      const articleContainer = document.getElementById('articles-container');
+      const researchContainer = document.getElementById('research-container');
+
+      data.articles.forEach(paper => {
+        const card = `<div class='glass-card rounded-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col'>
+          <div class='p-6 flex-grow'>
+            <p class='text-sm text-blue-300 mb-2'>${paper.category} • ${paper.date}</p>
+            <h3 class='text-xl font-bold text-white mb-3'>${paper.title}</h3>
+            <p class='text-slate-300 text-sm'>${paper.description}</p>
+          </div>
+          <div class='p-6 pt-0'>
+            <a href='${paper.file}' target='_blank' class='font-semibold text-blue-300 hover:text-blue-200 transition-colors'>View Paper →</a>
+          </div>
+        </div>`;
+        articleContainer.insertAdjacentHTML('beforeend', card);
+      });
+
+      data.research_papers.forEach(paper => {
+        const card = `<div class='glass-card rounded-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col'>
+          <div class='p-6 flex-grow'>
+            <p class='text-sm text-blue-300 mb-2'>${paper.category} • ${paper.date} • <span class='italic text-blue-200'>${paper.type}</span></p>
+            <h3 class='text-xl font-bold text-white mb-3'>${paper.title}</h3>
+            <p class='text-slate-300 text-sm'>${paper.description}</p>
+          </div>
+          <div class='p-6 pt-0'>
+            <a href='${paper.file}' target='_blank' class='font-semibold text-blue-300 hover:text-blue-200 transition-colors'>View Paper →</a>
+          </div>
+        </div>`;
+        researchContainer.insertAdjacentHTML('beforeend', card);
+      });
+    }
+
+    loadPapers();
+
+    // Security script
     document.addEventListener('contextmenu', e => e.preventDefault());
-    document.onkeydown = e => {
-      if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) return false;
-    };
     document.addEventListener('copy', e => e.preventDefault());
     document.addEventListener('cut', e => e.preventDefault());
     document.addEventListener('paste', e => e.preventDefault());
+    document.onkeydown = e => {
+      if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) return false;
+    };
 
     const faders = document.querySelectorAll('.fade-in');
     const appear = new IntersectionObserver(entries => {
