@@ -123,6 +123,10 @@
       pointer-events: auto !important;
     }
 
+    #pdf-viewer iframe::-webkit-scrollbar {
+      display: none;
+    }
+
     #close-btn {
       position: absolute;
       top: 20px;
@@ -178,7 +182,7 @@
   <!-- PDF VIEWER -->
   <div id="pdf-viewer" class="flex">
     <span id="close-btn">&times;</span>
-    <iframe id="pdf-frame" src="" sandbox="allow-same-origin allow-scripts" allow="fullscreen"></iframe>
+    <iframe id="pdf-frame" src=""></iframe>
   </div>
 
   <!-- FOOTER -->
@@ -215,9 +219,10 @@
       data.research_papers.forEach(paper => researchContainer.insertAdjacentHTML('beforeend', createCard(paper)));
     }
 
+    // ✅ Local PDF Viewer with hidden toolbar
     function openPDF(file) {
       const pdfFrame = document.getElementById('pdf-frame');
-      pdfFrame.src = `https://docs.google.com/gview?embedded=true&url=${window.location.origin}/${file}`;
+      pdfFrame.src = file + "#toolbar=0&navpanes=0&scrollbar=0";
       const viewer = document.getElementById('pdf-viewer');
       viewer.style.display = 'flex';
       requestAnimationFrame(() => viewer.classList.add('show'));
@@ -234,7 +239,7 @@
 
     loadPapers();
 
-    // Disable copying, dev tools, etc.
+    // Security
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('copy', e => e.preventDefault());
     document.addEventListener('cut', e => e.preventDefault());
