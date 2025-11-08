@@ -6,6 +6,7 @@
   <title>Articles & Research/Review Papers - Kumar Shivam</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -20,12 +21,13 @@
       position: relative;
     }
 
-    img, a, iframe {
+    iframe {
       pointer-events: none !important;
     }
 
     .gradient-background {
-      position: fixed; top: 0; left: 0;
+      position: fixed;
+      top: 0; left: 0;
       width: 100%; height: 100%;
       background: radial-gradient(circle at 20% 30%, #1a1a2e, #16213e, #0f3460, #000000);
       background-size: 300% 300%;
@@ -33,22 +35,103 @@
       z-index: -2;
     }
 
-    @keyframes cosmicFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    @keyframes cosmicFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-    .glass-card { background: rgba(25, 35, 50, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(100, 180, 255, 0.2); box-shadow: 0 0 20px rgba(120, 200, 255, 0.15); transition: box-shadow 0.4s ease, transform 0.4s ease; }
-    .glass-card:hover { box-shadow: 0 0 35px rgba(120, 200, 255, 0.3); }
+    .glass-card {
+      background: rgba(25, 35, 50, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(100, 180, 255, 0.2);
+      box-shadow: 0 0 20px rgba(120, 200, 255, 0.15);
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+    }
 
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .glass-card:hover {
+      box-shadow: 0 0 35px rgba(120, 200, 255, 0.3);
+    }
 
-    .cosmic-separator { display: flex; align-items: center; justify-content: center; margin: 60px 0 40px 0; position: relative; }
-    .cosmic-separator::before, .cosmic-separator::after { content: ''; flex: 1; height: 2px; background: linear-gradient(to right, transparent, #6ab0ff, transparent); animation: shimmer 3s infinite ease-in-out; }
-    .cosmic-separator span { font-size: 1.4em; color: #a4d8ff; padding: 0 15px; letter-spacing: 1px; text-transform: uppercase; }
-    @keyframes shimmer { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cosmic-separator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 60px 0 40px 0;
+      position: relative;
+    }
+
+    .cosmic-separator::before,
+    .cosmic-separator::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #6ab0ff, transparent);
+      animation: shimmer 3s infinite ease-in-out;
+    }
+
+    .cosmic-separator span {
+      font-size: 1.4em;
+      color: #a4d8ff;
+      padding: 0 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    #pdf-viewer {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #pdf-viewer iframe {
+      width: 80%;
+      height: 85%;
+      border: none;
+      pointer-events: auto !important;
+    }
+
+    #close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #a4d8ff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    #close-btn:hover {
+      color: #ffffff;
+    }
   </style>
 </head>
+
 <body class="text-white" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
   <div class="gradient-background"></div>
+
+  <!-- HEADER -->
   <header class="bg-gray-900 bg-opacity-80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-md">
     <div class="container mx-auto px-6 py-3 flex justify-between items-center">
       <a href="index.html" class="flex flex-col text-white hover:text-blue-300 transition duration-200">
@@ -65,6 +148,7 @@
     </div>
   </header>
 
+  <!-- MAIN -->
   <main class="pt-32 pb-16">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16 fade-in">
@@ -80,6 +164,13 @@
     </div>
   </main>
 
+  <!-- PDF VIEWER -->
+  <div id="pdf-viewer" class="flex">
+    <span id="close-btn">&times;</span>
+    <iframe id="pdf-frame" src=""></iframe>
+  </div>
+
+  <!-- FOOTER -->
   <footer class="text-center py-6 text-slate-400 text-sm">
     <p>© 2025 aboylostinthecosmos — All Rights Reserved.</p>
   </footer>
@@ -92,44 +183,47 @@
       const articleContainer = document.getElementById('articles-container');
       const researchContainer = document.getElementById('research-container');
 
-      data.articles.forEach(paper => {
-        const card = `<div class='glass-card rounded-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col'>
+      const createCard = (paper) => `
+        <div class='glass-card rounded-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col'>
           <div class='p-6 flex-grow'>
-            <p class='text-sm text-blue-300 mb-2'>${paper.category} • ${paper.date}</p>
+            <p class='text-sm text-blue-300 mb-2'>
+              ${paper.category} • ${paper.date}${paper.type ? ` • <span class='italic text-blue-200'>${paper.type}</span>` : ""}
+            </p>
             <h3 class='text-xl font-bold text-white mb-3'>${paper.title}</h3>
             <p class='text-slate-300 text-sm'>${paper.description}</p>
           </div>
           <div class='p-6 pt-0'>
-            <a href='${paper.file}' target='_blank' class='font-semibold text-blue-300 hover:text-blue-200 transition-colors'>View Paper →</a>
+            <button onclick=\"openPDF('${paper.file}')\" class='font-semibold text-blue-300 hover:text-blue-200 transition-colors'>
+              View Paper →
+            </button>
           </div>
-        </div>`;
-        articleContainer.insertAdjacentHTML('beforeend', card);
-      });
+        </div>
+      `;
 
-      data.research_papers.forEach(paper => {
-        const card = `<div class='glass-card rounded-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col'>
-          <div class='p-6 flex-grow'>
-            <p class='text-sm text-blue-300 mb-2'>${paper.category} • ${paper.date} • <span class='italic text-blue-200'>${paper.type}</span></p>
-            <h3 class='text-xl font-bold text-white mb-3'>${paper.title}</h3>
-            <p class='text-slate-300 text-sm'>${paper.description}</p>
-          </div>
-          <div class='p-6 pt-0'>
-            <a href='${paper.file}' target='_blank' class='font-semibold text-blue-300 hover:text-blue-200 transition-colors'>View Paper →</a>
-          </div>
-        </div>`;
-        researchContainer.insertAdjacentHTML('beforeend', card);
-      });
+      data.articles.forEach(paper => articleContainer.insertAdjacentHTML('beforeend', createCard(paper)));
+      data.research_papers.forEach(paper => researchContainer.insertAdjacentHTML('beforeend', createCard(paper)));
     }
+
+    function openPDF(file) {
+      document.getElementById('pdf-frame').src = file;
+      document.getElementById('pdf-viewer').style.display = 'flex';
+    }
+
+    document.getElementById('close-btn').addEventListener('click', () => {
+      document.getElementById('pdf-viewer').style.display = 'none';
+      document.getElementById('pdf-frame').src = '';
+    });
 
     loadPapers();
 
-    // Security script
+    // Disable copying, dev tools, etc.
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('copy', e => e.preventDefault());
     document.addEventListener('cut', e => e.preventDefault());
     document.addEventListener('paste', e => e.preventDefault());
     document.onkeydown = e => {
-      if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) return false;
+      if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85))
+        return false;
     };
 
     const faders = document.querySelectorAll('.fade-in');
