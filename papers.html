@@ -116,12 +116,6 @@
     </p>
   </section>
 
-  <!-- FEATURED -->
-  <section class="mb-24 fade-in">
-    <h2 class="text-xl text-blue-300 mb-4">Featured Work</h2>
-    <div id="featured" class="glass rounded-2xl p-8"></div>
-  </section>
-
   <!-- ARTICLES -->
   <section class="mb-24 fade-in">
     <h2 class="text-2xl font-semibold mb-8">Articles</h2>
@@ -152,18 +146,7 @@ async function loadPapers() {
   const res = await fetch('papers.json');
   const data = await res.json();
 
-  // Featured
-  const f = data.featured;
-  document.getElementById('featured').innerHTML = `
-    <p class="text-blue-300 text-sm mb-2">${f.category} • ${f.date}</p>
-    <h3 class="text-2xl font-semibold mb-3">${f.title}</h3>
-    <p class="text-slate-300 mb-4">${f.description}</p>
-    <button onclick="openPDF('${f.file}')" class="text-blue-300 font-medium">
-      View Paper →
-    </button>
-  `;
-
-  // Articles (list)
+  // Articles
   const articles = document.getElementById('articles');
   data.articles.forEach(a => {
     articles.innerHTML += `
@@ -191,6 +174,7 @@ async function loadPapers() {
             <div>
               <h4 class="font-medium">${p.title}</h4>
               <p class="text-slate-300 text-sm">${p.description}</p>
+              <p class="text-xs text-blue-300 mt-1">${p.type ? p.type + ' • ' : ''}${p.date}</p>
               <button onclick="openPDF('${p.file}')" class="text-blue-300 text-sm mt-1">
                 View →
               </button>
@@ -214,7 +198,7 @@ document.getElementById('close-btn').onclick = () => {
 
 loadPapers();
 
-// fade-in observer
+// Fade-in observer
 const obs = new IntersectionObserver(e =>
   e.forEach(x => x.isIntersecting && x.target.classList.add('visible')),
   { threshold: 0.1 }
