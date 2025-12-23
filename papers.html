@@ -167,8 +167,8 @@ async function loadPapers() {
   const research = document.getElementById('research');
   for (const group in data.research_groups) {
     research.innerHTML += `
-      <details class="glass rounded-xl p-5">
-        <summary class="text-lg font-medium text-blue-300">${group}</summary>
+      <details class="glass rounded-xl p-5" open>
+        <summary class="flex justify-between items-center text-lg font-medium text-blue-300">${group}<span class="text-slate-400">▼</span></summary>
         <div class="mt-4 space-y-4">
           ${data.research_groups[group].map(p => `
             <div>
