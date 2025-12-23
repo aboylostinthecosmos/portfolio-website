@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Articles & Research/Review Papers - Kumar Shivam</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Papers & Articles — Kumar Shivam</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -13,23 +14,13 @@
       color: white;
       overflow-x: hidden;
       user-select: none;
-      -webkit-user-drag: none;
-      -webkit-touch-callout: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       min-height: 100vh;
-      position: relative;
-    }
-
-    iframe {
-      pointer-events: none !important;
     }
 
     .gradient-background {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: radial-gradient(circle at 20% 30%, #1a1a2e, #16213e, #0f3460, #000000);
+      inset: 0;
+      background: radial-gradient(circle at 20% 30%, #1a1a2e, #16213e, #0f3460, #000);
       background-size: 300% 300%;
       animation: cosmicFlow 15s ease infinite;
       z-index: -2;
@@ -41,22 +32,16 @@
       100% { background-position: 0% 50%; }
     }
 
-    .glass-card {
+    .glass {
       background: rgba(25, 35, 50, 0.75);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(100, 180, 255, 0.2);
-      box-shadow: 0 0 20px rgba(120, 200, 255, 0.15);
-      transition: box-shadow 0.4s ease, transform 0.4s ease;
-    }
-
-    .glass-card:hover {
-      box-shadow: 0 0 35px rgba(120, 200, 255, 0.3);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(120, 180, 255, 0.18);
     }
 
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
+      transition: opacity 0.9s ease, transform 0.9s ease;
     }
 
     .fade-in.visible {
@@ -64,201 +49,178 @@
       transform: translateY(0);
     }
 
-    .cosmic-separator {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 60px 0 40px 0;
-      position: relative;
+    details summary {
+      cursor: pointer;
+      list-style: none;
     }
 
-    .cosmic-separator::before,
-    .cosmic-separator::after {
-      content: '';
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(to right, transparent, #6ab0ff, transparent);
-      animation: shimmer 3s infinite ease-in-out;
-    }
-
-    .cosmic-separator span {
-      font-size: 1.4em;
-      color: #a4d8ff;
-      padding: 0 15px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    @keyframes shimmer {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
+    details summary::-webkit-details-marker {
+      display: none;
     }
 
     #pdf-viewer {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.95);
+      inset: 0;
+      background: rgba(0,0,0,0.95);
       display: none;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       z-index: 1000;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    #pdf-viewer.show {
-      display: flex;
-      opacity: 1;
-    }
-
-    #pdf-viewer.hide {
-      opacity: 0;
     }
 
     #pdf-viewer iframe {
       width: 80%;
       height: 85%;
       border: none;
-      pointer-events: auto !important;
-    }
-
-    #pdf-viewer iframe::-webkit-scrollbar {
-      display: none;
     }
 
     #close-btn {
       position: absolute;
       top: 20px;
       right: 30px;
-      color: #a4d8ff;
       font-size: 1.5rem;
       cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    #close-btn:hover {
-      color: #ffffff;
+      color: #a4d8ff;
     }
   </style>
 </head>
 
-<body class="text-white" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
-  <div class="gradient-background"></div>
+<body oncontextmenu="return false">
+<div class="gradient-background"></div>
 
-  <!-- HEADER -->
-  <header class="bg-gray-900 bg-opacity-80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-md">
-    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-      <a href="index.html" class="flex flex-col text-white hover:text-blue-300 transition duration-200">
-        <span class="text-2xl font-semibold">Kumar Shivam</span>
-        <span class="text-xs text-gray-400 italic">a boy lost in the cosmos</span>
-      </a>
-      <nav class="hidden md:flex space-x-8 text-lg">
-        <a href="index.html" class="hover:text-blue-300 transition">Home</a>
-        <a href="about.html" class="hover:text-blue-300 transition">About</a>
-        <a href="blog.html" class="hover:text-blue-300 transition">Blog</a>
-        <a href="projects.html" class="hover:text-blue-300 transition">Projects</a>
-        <a href="papers.html" class="hover:text-blue-300 transition">Papers</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- MAIN -->
-  <main class="pt-32 pb-16">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16 fade-in">
-        <h1 class="text-4xl md:text-5xl font-bold text-white">Articles & Research/Review Papers</h1>
-        <p class="text-slate-300 mt-2">A collection of my conceptual writings, research, and scientific reviews.</p>
-      </div>
-
-      <h2 class="text-3xl text-center font-semibold text-blue-300 mb-10 fade-in">Articles</h2>
-      <div id="articles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in"></div>
-
-      <div class="cosmic-separator"><span>Research & Review Papers</span></div>
-      <div id="research-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in"></div>
-    </div>
-  </main>
-
-  <!-- PDF VIEWER -->
-  <div id="pdf-viewer" class="flex">
-    <span id="close-btn">&times;</span>
-    <iframe id="pdf-frame" src=""></iframe>
+<!-- HEADER -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-80 backdrop-blur">
+  <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <a href="index.html">
+      <div class="text-xl font-semibold">Kumar Shivam</div>
+      <div class="text-xs text-gray-400 italic">a boy lost in the cosmos</div>
+    </a>
+    <nav class="hidden md:flex space-x-8">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="projects.html">Projects</a>
+      <a href="papers.html" class="text-blue-300">Papers</a>
+    </nav>
   </div>
+</header>
 
-  <!-- FOOTER -->
-  <footer class="text-center py-6 text-slate-400 text-sm">
-    <p>© 2025 aboylostinthecosmos — All Rights Reserved.</p>
-  </footer>
+<!-- MAIN -->
+<main class="pt-32 pb-20 container mx-auto px-6 max-w-5xl">
 
-  <script>
-    async function loadPapers() {
-      const res = await fetch('papers.json');
-      const data = await res.json();
+  <!-- HERO -->
+  <section class="text-center mb-20 fade-in">
+    <h1 class="text-4xl md:text-5xl font-bold">Papers & Articles</h1>
+    <p class="text-slate-300 mt-3">
+      Conceptual writings, research notes, and review papers in physics and astronomy.
+    </p>
+  </section>
 
-      const articleContainer = document.getElementById('articles-container');
-      const researchContainer = document.getElementById('research-container');
+  <!-- FEATURED -->
+  <section class="mb-24 fade-in">
+    <h2 class="text-xl text-blue-300 mb-4">Featured Work</h2>
+    <div id="featured" class="glass rounded-2xl p-8"></div>
+  </section>
 
-      const createCard = (paper) => `
-        <div class='glass-card rounded-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col'>
-          <div class='p-6 flex-grow'>
-            <p class='text-sm text-blue-300 mb-2'>
-              ${paper.category} • ${paper.date}${paper.type ? ` • <span class='italic text-blue-200'>${paper.type}</span>` : ""}
-            </p>
-            <h3 class='text-xl font-bold text-white mb-3'>${paper.title}</h3>
-            <p class='text-slate-300 text-sm'>${paper.description}</p>
-          </div>
-          <div class='p-6 pt-0'>
-            <button onclick=\"openPDF('${paper.file}')\" class='font-semibold text-blue-300 hover:text-blue-200 transition-colors'>
-              View Paper →
-            </button>
-          </div>
+  <!-- ARTICLES -->
+  <section class="mb-24 fade-in">
+    <h2 class="text-2xl font-semibold mb-8">Articles</h2>
+    <div id="articles" class="space-y-6"></div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="fade-in">
+    <h2 class="text-2xl font-semibold mb-8">Research & Review Papers</h2>
+    <div id="research" class="space-y-6"></div>
+  </section>
+
+</main>
+
+<!-- PDF VIEWER -->
+<div id="pdf-viewer">
+  <span id="close-btn">&times;</span>
+  <iframe id="pdf-frame"></iframe>
+</div>
+
+<!-- FOOTER -->
+<footer class="text-center text-slate-400 text-sm py-6">
+  © 2025 aboylostinthecosmos — All Rights Reserved.
+</footer>
+
+<script>
+async function loadPapers() {
+  const res = await fetch('papers.json');
+  const data = await res.json();
+
+  // Featured
+  const f = data.featured;
+  document.getElementById('featured').innerHTML = `
+    <p class="text-blue-300 text-sm mb-2">${f.category} • ${f.date}</p>
+    <h3 class="text-2xl font-semibold mb-3">${f.title}</h3>
+    <p class="text-slate-300 mb-4">${f.description}</p>
+    <button onclick="openPDF('${f.file}')" class="text-blue-300 font-medium">
+      View Paper →
+    </button>
+  `;
+
+  // Articles (list)
+  const articles = document.getElementById('articles');
+  data.articles.forEach(a => {
+    articles.innerHTML += `
+      <div class="border-b border-white/10 pb-4">
+        <h3 class="text-lg font-medium">${a.title}</h3>
+        <p class="text-slate-300 text-sm mt-1">${a.description}</p>
+        <p class="text-xs text-blue-300 mt-2">
+          ${a.category} • ${a.date}
+        </p>
+        <button onclick="openPDF('${a.file}')" class="text-blue-300 text-sm mt-2">
+          Read →
+        </button>
+      </div>
+    `;
+  });
+
+  // Research grouped
+  const research = document.getElementById('research');
+  for (const group in data.research_groups) {
+    research.innerHTML += `
+      <details class="glass rounded-xl p-5">
+        <summary class="text-lg font-medium text-blue-300">${group}</summary>
+        <div class="mt-4 space-y-4">
+          ${data.research_groups[group].map(p => `
+            <div>
+              <h4 class="font-medium">${p.title}</h4>
+              <p class="text-slate-300 text-sm">${p.description}</p>
+              <button onclick="openPDF('${p.file}')" class="text-blue-300 text-sm mt-1">
+                View →
+              </button>
+            </div>
+          `).join('')}
         </div>
-      `;
+      </details>
+    `;
+  }
+}
 
-      data.articles.forEach(paper => articleContainer.insertAdjacentHTML('beforeend', createCard(paper)));
-      data.research_papers.forEach(paper => researchContainer.insertAdjacentHTML('beforeend', createCard(paper)));
-    }
+function openPDF(file) {
+  document.getElementById('pdf-frame').src = file + "#toolbar=0&navpanes=0";
+  document.getElementById('pdf-viewer').style.display = 'flex';
+}
 
-    // ✅ Local PDF Viewer with hidden toolbar
-    function openPDF(file) {
-      const pdfFrame = document.getElementById('pdf-frame');
-      pdfFrame.src = file + "#toolbar=0&navpanes=0&scrollbar=0";
-      const viewer = document.getElementById('pdf-viewer');
-      viewer.style.display = 'flex';
-      requestAnimationFrame(() => viewer.classList.add('show'));
-    }
+document.getElementById('close-btn').onclick = () => {
+  document.getElementById('pdf-viewer').style.display = 'none';
+  document.getElementById('pdf-frame').src = '';
+};
 
-    document.getElementById('close-btn').addEventListener('click', () => {
-      const viewer = document.getElementById('pdf-viewer');
-      viewer.classList.remove('show');
-      setTimeout(() => {
-        viewer.style.display = 'none';
-        document.getElementById('pdf-frame').src = '';
-      }, 400);
-    });
+loadPapers();
 
-    loadPapers();
+// fade-in observer
+const obs = new IntersectionObserver(e =>
+  e.forEach(x => x.isIntersecting && x.target.classList.add('visible')),
+  { threshold: 0.1 }
+);
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
 
-    // Security
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('copy', e => e.preventDefault());
-    document.addEventListener('cut', e => e.preventDefault());
-    document.addEventListener('paste', e => e.preventDefault());
-    document.onkeydown = e => {
-      if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85))
-        return false;
-    };
-
-    const faders = document.querySelectorAll('.fade-in');
-    const appear = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          appear.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    faders.forEach(f => appear.observe(f));
-  </script>
 </body>
 </html>
